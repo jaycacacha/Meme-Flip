@@ -1,0 +1,99 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+@font-face {
+  font-family: SpaceComics;
+  src: url(/assets/font/SpaceComics.ttf);
+}
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#mainContainer {
+  margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+}
+#mainContainer.inactive {
+  display: none;
+}
+.gameTitle {
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+#title {
+  font-size: 70px;
+  font-family: SpaceComics;
+  text-transform: uppercase;
+}
+#counter {
+  font-size: 15px;
+  font-family: SpaceComics;
+  text-transform: uppercase;
+}
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  height: 100px;
+  width: 860px;
+  gap: 5px;
+}
+#gameOver {
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4);
+}
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  width: 50%;
+  text-align: center;
+}
+.gameOverTitle,
+.gameWinTitle {
+  font-size: 45px;
+  font-family: SpaceComics;
+  text-transform: uppercase;
+}
+#gameOverImg {
+  width: 500px;
+  height: 500px;
+}
+.gameOverInstruction,
+.gameWinInstruction {
+  margin-top: 50px;
+  font-size: 20px;
+  font-family: SpaceComics;
+  text-transform: uppercase;
+}
+#gameWin {
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4);
+}
+#gameWin.inactive {
+  display: none;
+}
+#gameOver.inactive {
+  display: none;
+}

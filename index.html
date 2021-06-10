@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles/index.css" />
+    <script src="scripts/index.js"></script>
+    <title>Meme Flip</title>
+  </head>
+  <body>
+    <div id="mainContainer">
+      <div class="gameTitle">
+        <p id="title">Meme Flip</p>
+        <p id="counter">180 seconds remaining</p>
+      </div>
+      <div class="grid"></div>
+    </div>
+    <div id="gameOver" class="inactive">
+      <div class="modal-content">
+        <p class="gameOverTitle">Game Over</p>
+        <img src="/assets/cryderp_gameover.jpg" id="gameOverImg" />
+        <p class="gameOverInstruction">Press SPACE to restart</p>
+      </div>
+    </div>
+    <div id="gameWin" class="inactive">
+      <div class="modal-content">
+        <p class="gameWinTitle">Congratulations!</p>
+        <img src="/assets/likeaboss.jpg" id="gameOverImg" />
+        <p class="gameWinInstruction">Press SPACE to restart</p>
+      </div>
+    </div>
+  </body>
+</html>
