@@ -241,7 +241,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (cardChosen.length === 2) {
       lockBoard = true;
-      setTimeout(checkForMatch, 1000);
+      setTimeout(checkForMatch, 1500);
     }
   }
   document.addEventListener("keydown", (e) => {
