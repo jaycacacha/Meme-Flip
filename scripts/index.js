@@ -206,7 +206,6 @@ document.addEventListener("DOMContentLoaded", () => {
     var card = document.querySelectorAll("img");
     const optionOneID = cardChosenID[0];
     const optionTwoID = cardChosenID[1];
-    console.log(cardChosenID);
     if (cardChosen[0] === cardChosen[1]) {
       if (cardChosenID[0] === cardChosenID[1]) {
         card[optionOneID].setAttribute("src", "./assets/doge_background.jpg");
@@ -216,12 +215,10 @@ document.addEventListener("DOMContentLoaded", () => {
         card[optionOneID].setAttribute("style", "pointer-events:none");
         card[optionTwoID].setAttribute("style", "pointer-events:none");
       }
-
       lockBoard = false;
     } else {
       card[optionOneID].setAttribute("src", "./assets/doge_background.jpg");
       card[optionTwoID].setAttribute("src", "./assets/doge_background.jpg");
-      console.log("no match");
       lockBoard = false;
       wrongSound.play();
     }
@@ -236,7 +233,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function flipCard() {
     if (lockBoard) return;
-
     var cardID = this.getAttribute("data-id");
     this.setAttribute("src", cardArray[cardID].img);
     this.setAttribute("name", cardArray[cardID].name);
