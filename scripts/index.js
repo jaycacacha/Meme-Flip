@@ -169,6 +169,7 @@ document.addEventListener("DOMContentLoaded", () => {
   var cardsPicked = [];
   var gameOver = false;
   var gameWin = false;
+  var lockBoard = false;
 
   const correctSound = document.createElement("audio");
   correctSound.src = "./assets/correct.wav";
@@ -205,17 +206,23 @@ document.addEventListener("DOMContentLoaded", () => {
     var card = document.querySelectorAll("img");
     const optionOneID = cardChosenID[0];
     const optionTwoID = cardChosenID[1];
-
+    console.log(cardChosenID);
     if (cardChosen[0] === cardChosen[1]) {
-      console.log("match");
-      cardsPicked.push(cardChosen);
-      correctSound.play();
-      card[optionOneID].setAttribute("style", "pointer-events:none");
-      card[optionTwoID].setAttribute("style", "pointer-events:none");
+      if (cardChosenID[0] === cardChosenID[1]) {
+        card[optionOneID].setAttribute("src", "./assets/doge_background.jpg");
+      } else {
+        cardsPicked.push(cardChosen);
+        correctSound.play();
+        card[optionOneID].setAttribute("style", "pointer-events:none");
+        card[optionTwoID].setAttribute("style", "pointer-events:none");
+      }
+
+      lockBoard = false;
     } else {
       card[optionOneID].setAttribute("src", "./assets/doge_background.jpg");
       card[optionTwoID].setAttribute("src", "./assets/doge_background.jpg");
       console.log("no match");
+      lockBoard = false;
       wrongSound.play();
     }
     cardChosen = [];
@@ -228,12 +235,17 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function flipCard() {
+    if (lockBoard) return;
+
     var cardID = this.getAttribute("data-id");
+    this.setAttribute("src", cardArray[cardID].img);
+    this.setAttribute("name", cardArray[cardID].name);
     cardChosen.push(cardArray[cardID].name);
     cardChosenID.push(cardID);
-    this.setAttribute("src", cardArray[cardID].img);
+
     if (cardChosen.length === 2) {
-      setTimeout(checkForMatch, 500);
+      lockBoard = true;
+      setTimeout(checkForMatch, 1000);
     }
   }
   document.addEventListener("keydown", (e) => {
